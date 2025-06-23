@@ -1,0 +1,7 @@
+FileName	FrequencyFilter	BoutRange	PercentSignalKept	MinSilenceDuration	MinSyllableDuration	Normalized
+Luscinia-megarhynchos-775292_F1_Bout5.wav	[0, 169.0]	[0, 4694]	1.0	31.5	63.0	yes
+Luscinia-megarhynchos-775292_F1_bout1.wav	[0, 265.0]	[0, 4694]	1.0	33.0	29.0	yes
+Luscinia-megarhynchos-775292_F1_bout2.wav	[0, 318.0]	[219.0, 4694]	1.1	70.0	63.0	yes
+Luscinia-megarhynchos-775292_F1_bout3.wav	[0, 240.0]	[0, 4694]	1.4	31.5	42.0	yes
+Luscinia-megarhynchos-775292_F1_bout4.wav	[0, 269.0]	[0, 4694]	1.2	31.5	63.0	yes
+Luscinia-megarhynchos-775292_F1_bout6.wav	[0, 264.0]	[0, 4694]	1.5	31.5	63.0	yes

@@ -1,0 +1,7 @@
+FileName	FrequencyFilter	BoutRange	PercentSignalKept	MinSilenceDuration	MinSyllableDuration	Normalized
+Junco-hyemalis-139623_F1_bout1.wav	[0, 513]	[0, 4377]	0.9	31.5	63.0	yes
+Junco-hyemalis-139623_F1_bout2.wav	[72.0, 223.0]	[251.0, 5545]	0.9	31.5	63.0	yes
+Junco-hyemalis-139623_F1_bout3.wav	[81.0, 256.0]	[333.0, 5150.0]	0.9	31.5	63.0	yes
+Junco-hyemalis-139623_F1_bout4.wav	[75.0, 223.0]	[0, 5499.0]	0.7	31.5	63.0	yes
+Junco-hyemalis-139623_F1_bout5.wav	[80.0, 211.0]	[299.0, 5895.0]	0.7	31.5	63.0	yes
+Junco-hyemalis-139623_F1_bout6.wav	[60.0, 198.0]	[0, 6050]	0.9	31.5	72.0	yes
