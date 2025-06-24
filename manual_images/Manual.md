@@ -102,7 +102,7 @@ When opening Nester for the first time in your environment, run the first two ce
 
 These cells ensure that all of the necessary modules are imported and all of the paths are configured correctly. If you have a specific datetime identifier you already have in your folders that you would like to work on simply add dt_id = “YYYY-MM-DD_HH-MM-SS” inside initialize_paths like so
 
-`Initialize_paths(dataset_id,dt_id = “YYYY-MM-DD_HH-MM-SS”)`
+`initialize_paths(dataset_id,dt_id = “YYYY-MM-DD_HH-MM-SS”)`
 
 ## The Process
 
