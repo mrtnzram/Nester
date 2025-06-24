@@ -11,13 +11,13 @@ human supervision. It features real time dataframe corrections, UMAP and HDBSCAN
 ## Background
 *Nester utilized the existing code:*
 
-### AVGN
+#### AVGN
 [Animal Vocalization Generative Network (AVGN)](https://github.com/timsainb/avgn_paper?tab=readme-ov-file) is a
 repository of python tools created by Tim Sainburg et al. (2020) centered around latent models used to generate, 
 visualize, and characterize animal vocalizations. Nester pulls code from AVGN for spectrogram processing, UMAP and 
 HDBSCAN methods, and visualizations.
 
-### Chipper output (GZIPs) to JSON
+#### Chipper output (GZIPs) to JSON
 Nester utilizes modified code created by Kate Snyder to process chipper output files (GZIPs) to JSON as preprocessing
 for Nester's algorithm. It takes chipper syllable onset and offset's for accuract syllable segmentation.
 
