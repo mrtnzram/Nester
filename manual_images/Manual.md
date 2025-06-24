@@ -46,7 +46,7 @@ ParentFolder:
 GZIP file naming should follow the convention:
 
 ```
-SegSyllsOutput_Species-species-BirdID_F1_boutnumber
+SegSyllsOutput_Genus-species-BirdID_F1_boutnumber
 ```
 
 This is because of how the code is pulling the species, birdid, and boutnumber for the dataframe. If your gzip file doesn't match this naming convention, either match our naming convention or modify `chipper_output_to_json.py` accordingly.
