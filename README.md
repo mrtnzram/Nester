@@ -1,7 +1,7 @@
 # Nester
 *created by Ramiel Martinez as an extension of [AVGN (Sainburg, et al., 2020)](https://github.com/timsainb/avgn_paper?tab=readme-ov-file) with the assistance of Ximena Leon, Kate Snyder, and Nicole Creanza*
 
-Nester is a software compiled inside JupyterLab with matplotlib interactive widgets which utilizes machine-learning algorithms for semi-automated syntaxxing of birdsong syllables. It is the intended step after using [Chipper](https://github.com/CreanzaLab/chipper/tree/master).
+Nester is a software compiled inside JupyterLab with matplotlib interactive widgets which utilizes machine-learning algorithms for semi-automated syntaxing of birdsong syllables. It is the intended step after using [Chipper](https://github.com/CreanzaLab/chipper/tree/master).
 It mainly utilizes UMAP and HDBSCAN algorithms curated by the avgn package for automatic clustering of bird song syllables using spectrogram features. This software extends the capabilities of the algorithm by introducing 
 human supervision. It features real time dataframe corrections, UMAP and HDBSCAN clustering changes, and visualizations. 
 
