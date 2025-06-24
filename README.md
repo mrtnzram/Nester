@@ -37,7 +37,7 @@ pip`
 
 ## Contributing to Nester
 
-Nester is currently in its early stages of development. In the near future, Nester would ideally become a software with a GUI. If you would like to contribute and create a GUI for Nester feel free to use the code. 
+Nester is currently in its early stages of development. In the near future, Nester would ideally become a software with a GUI. If you would like to contribute and create a GUI for Nester feel free to use the code. If you would like to suggest any changes, please feel free to submit a pull request.
 
 If you find any bugs or would like to suggest changes or improvements to Nester, please create a new issue at [github/mrtnzram/Nester/issues](https://github.com/mrtnzram/Nester/issues).
 
