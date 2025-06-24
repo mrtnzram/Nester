@@ -23,7 +23,7 @@ for Nester's algorithm. It takes chipper syllable onset and offset's for accurac
 
 
 ## Getting Started
-To get Nester started on your device, follow the installation steps below and refer to the [Nester Manual]().
+To get Nester started on your device, follow the installation steps below and refer to the [Nester Manual](https://github.com/mrtnzram/Nester/blob/master/manual_images/Manual.md).
 
 1) Open terminal/powershell.
 2) Set path to directory where you want to clone the directory: `cd filepath`
