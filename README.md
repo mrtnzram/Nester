@@ -19,7 +19,7 @@ HDBSCAN methods, and visualizations.
 
 #### Chipper output (GZIPs) to JSON
 Nester utilizes modified code created by Kate Snyder to process chipper output files (GZIPs) to JSON as preprocessing
-for Nester's algorithm. It takes chipper syllable onset and offset's for accuract syllable segmentation.
+for Nester's algorithm. It takes chipper syllable onset and offset's for accurate syllable segmentation.
 
 
 ## Getting Started
