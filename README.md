@@ -27,7 +27,7 @@ To get Nester started on your device, follow the installation steps below and re
 
 1) Open terminal/powershell.
 2) Set path to directory where you want to clone the directory: `cd filepath`
-3) Clone directory: `git clone https://github.com/username/repo-name.git`
+3) Clone directory: `git clone https://github.com/mrtnzram/Nester.git`
 4) Create conda environment: `conda create -n env_name python==3.10.16 
 pip`
 5) Activate environment: `conda activate env_name`
