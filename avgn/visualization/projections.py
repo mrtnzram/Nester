@@ -41,6 +41,8 @@ def scatter_projections(
     rasterized=True,
     equalize_axes=True,
     print_lab_dict=False,  # prints color scheme
+    colors=None,
+    lab_dict=None,
 ):
     """ creates a scatterplot of syllables using some projection
     """
@@ -59,23 +61,27 @@ def scatter_projections(
     # color labels
     if labels is not None:
         if categorical_labels:
-            if (color_palette == "tab20") & (len(np.unique(labels)) < 20):
-                pal = sns.color_palette(color_palette, n_colors=20)
-                pal = np.array(pal)[
-                    np.linspace(0, 19, len(np.unique(labels))).astype("int")
-                ]
-                # print(pal)
-            else:
-                pal = sns.color_palette(color_palette, n_colors=len(np.unique(labels)))
-            lab_dict = {lab: pal[i] for i, lab in enumerate(np.unique(labels))}
-            if grey_unlabelled:
-                if -1 in lab_dict.keys():
-                    lab_dict[-1] = [0.95, 0.95, 0.95, 1.0]
-                if print_lab_dict:
-                    print(lab_dict)
-            colors = np.array([lab_dict[i] for i in labels])
+            if lab_dict is None:
+                # fallback: build lab_dict as before
+                if (color_palette == "tab20") & (len(np.unique(labels)) < 20):
+                    pal = sns.color_palette(color_palette, n_colors=20)
+                    pal = np.array(pal)[
+                        np.linspace(0, 19, len(np.unique(labels))).astype("int")
+                    ]
+                    # print(pal)
+                else:
+                    pal = sns.color_palette(color_palette, n_colors=len(np.unique(labels)))
+                lab_dict = {lab: pal[i] for i, lab in enumerate(np.unique(labels))}
+                if grey_unlabelled:
+                    if -1 in lab_dict.keys():
+                        lab_dict[-1] = [0.95, 0.95, 0.95, 1.0]
+                    if print_lab_dict:
+                        print(lab_dict)
+            if colors is None:
+                colors = np.array([lab_dict[i] for i in labels])
     else:
-        colors = color
+        if colors is None:
+            colors = color
 
     if ax is None:
         fig, ax = plt.subplots(figsize=figsize)
@@ -377,8 +383,23 @@ def scatter_spec(
 
     if "labels" in scatter_kwargs:
         scatter_kwargs["labels"] = np.array(scatter_kwargs["labels"])[mask]
+        labels = scatter_kwargs["labels"]
+    else:
+        labels = None
     specs = np.array(specs)[mask]
     z = z[mask]
+
+    # Prepare color mapping if needed
+    if color_points and labels is not None:
+        unique_labels = np.unique(labels)
+        pal_colors = sns.color_palette(pal_color, n_colors=len(unique_labels))
+        lab_dict = {lab: pal_colors[i] for i, lab in enumerate(unique_labels)}
+        colors = np.array([lab_dict[i] for i in labels])
+        # Pass these to scatter_projections
+        scatter_kwargs["colors"] = colors
+        scatter_kwargs["lab_dict"] = lab_dict
+    else:
+        colors = "k"
 
     # prepare the main axis
     main_ax = fig.add_subplot(gs[1 : column_size - 1, 1 : column_size - 1])
@@ -449,17 +470,21 @@ def scatter_spec(
         chosen_point = np.random.choice(a=possible_points, size=1)[0]
         point_regions[chosen_point] = 1e4
         # plot point
+        # Set color for this point/spectrogram
+        if color_points and labels is not None:
+            border_color = colors[chosen_point]
+        else:
+            border_color = "k"
+
+        # plot enlarged point
         if enlarge_points > 0:
-            if color_points:
-                color = pal[key]
-            else:
-                color = "k"
             main_ax.scatter(
                 [z[chosen_point, 0]],
                 [z[chosen_point, 1]],
-                color=color,
+                color=border_color,
                 s=enlarge_points,
             )
+
         # draw spec
         axs[key]["ax"].matshow(
             specs[chosen_point],
@@ -471,11 +496,9 @@ def scatter_spec(
 
         axs[key]["ax"].set_xticks([])
         axs[key]["ax"].set_yticks([])
-        if color_points:
-            plt.setp(axs[key]["ax"].spines.values(), color=pal[key])
-
-        for i in axs[key]["ax"].spines.values():
-            i.set_linewidth(border_line_width)
+        plt.setp(axs[key]["ax"].spines.values(), color=border_color)
+        for i_sp in axs[key]["ax"].spines.values():
+            i_sp.set_linewidth(border_line_width)
 
         # draw a line between point and image
         if draw_lines:
@@ -504,12 +527,11 @@ def scatter_spec(
             mytrans2 = main_ax.transAxes + main_ax.figure.transFigure.inverted()
             infig_position_start = mytrans2.transform([xpos, ypos])
 
-            color = pal[key] if color_points else "k"
             lines_list.append(
                 lines.Line2D(
                     [infig_position_start[0], infig_position[0]],
                     [infig_position_start[1], infig_position[1]],
-                    color=color,
+                    color=border_color,
                     transform=fig.transFigure,
                     **line_kwargs,
                 )
